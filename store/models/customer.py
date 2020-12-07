@@ -11,6 +11,11 @@ class Customer(models.Model):
     def register(self):
         self.save()
 
+    def __str__(self):
+        return self.first_name
 
+    def isExists(self):
+        if Customer.objects.filter(email=self.email):
+            return True
 
-
+        return False
