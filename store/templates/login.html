@@ -2,20 +2,21 @@
 
 {% block content %}
 
-<div class="container mt-4">
+<div class="container mt-5">
     <div class="pt-1">
-        <div class="col-lg-4 rounded mx-auto border">
+        <div class="col-lg-4 rounded mx-auto border pt-1">
             <div class="text-center col">
+
                 <img
                         src="https://1.bp.blogspot.com/-3paSFq2kdXo/X8vGt2HnRwI/AAAAAAAAACc/v1cZTyHmqrMZTu0aPveLBvBYfPI2Rks0QCLcBGAsYHQ/s512/profile.png"
                         alt=""
                         class="" style="height: 140px;">
                 <!-- <hr> -->
-                <div class="display-8"><h3>Create An Account</h3></div>
+                <div class="display-8"><h3>Login</h3></div>
                 <hr>
             </div>
             <h3 hidden class="alert alert-light border rounded">Create An Account</h3>
-            <form action="/signup" method="POST">
+            <form action="/login" method="POST">
 
                 {% csrf_token %}
 
@@ -25,39 +26,23 @@
                 </div>
                 {% endif %}
 
-                <!-- firstname -->
-                <div class="form-group">
-                    <input type="text" name="first_name" value="{{values.first_name}}" class="form-control"
-                           placeholder="Enter First Name">
-                </div>
-
-                <!-- last name -->
-                <div class="form-group">
-                    <input type="text" name="last_name" value="{{values.last_name}}" class="form-control"
-                           placeholder="Enter Last Name">
-                </div>
-
-                <!-- phone -->
-                <div class="form-group">
-                    <input type="text" name="phone" class="form-control" value="{{values.phone}}"
-                           placeholder="Your Mobile Number">
-                </div>
                 <!-- email -->
                 <div class="form-group">
+                    <label for="">Email</label>
                     <input required type="email" name="email" value="{{values.email}}" class="form-control"
-                           placeholder="Your Email Address">
+                           placeholder="example@gmail.com">
                 </div>
-
 
                 <!-- password -->
                 <div class="form-group">
+                    <label for="">Password</label>
                     <input type="password" name="password" class="form-control"
-                           placeholder="Enter Password">
+                           placeholder="********">
                 </div>
 
                 <hr>
                 <div class="form-group">
-                    <input class="btn btn-info form-control" type="submit" value="Create An Account ">
+                    <input class="btn btn-info form-control mb-2" type="submit" value="Login">
                 </div>
 
             </form>
