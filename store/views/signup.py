@@ -46,6 +46,7 @@ class Signup(View):
             }
             return render(request, 'signup.html', data)
 
+
     def validateCustomer(self, customer):
 
         error_message = None

@@ -12,4 +12,3 @@ class Cart(View):
         print(products)
         return render(request, 'cart.html', {'products': products})
 
-

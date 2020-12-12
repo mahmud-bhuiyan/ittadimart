@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
-
 {% block content %}
-
 <div class="container mt-5">
     <div class="pt-1">
         <div class="col-lg-4 rounded mx-auto border pt-1">
@@ -9,8 +7,7 @@
 
                 <img
                         src="https://1.bp.blogspot.com/-3paSFq2kdXo/X8vGt2HnRwI/AAAAAAAAACc/v1cZTyHmqrMZTu0aPveLBvBYfPI2Rks0QCLcBGAsYHQ/s512/profile.png"
-                        alt=""
-                        class="" style="height: 140px;">
+                        style="height: 140px;">
                 <!-- <hr> -->
                 <div class="display-8"><h3>Login</h3></div>
                 <hr>
@@ -28,14 +25,14 @@
 
                 <!-- email -->
                 <div class="form-group">
-                    <label for="">Email</label>
+                    <label>Email</label>
                     <input required type="email" name="email" value="{{values.email}}" class="form-control"
                            placeholder="example@gmail.com">
                 </div>
 
                 <!-- password -->
                 <div class="form-group">
-                    <label for="">Password</label>
+                    <label>Password</label>
                     <input type="password" name="password" class="form-control"
                            placeholder="********">
                 </div>
@@ -49,5 +46,6 @@
         </div>
     </div>
 </div>
+
 
 {% endblock %}

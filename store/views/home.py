@@ -1,4 +1,4 @@
-from django.shortcuts import render , redirect , HttpResponseRedirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from store.models.product import Product
 from store.models.category import Category
 from django.views import View
@@ -7,7 +7,7 @@ from django.views import View
 # Create your views here.
 class Index(View):
 
-    def post(self , request):
+    def post(self, request):
         product = request.POST.get('product')
         remove = request.POST.get('remove')
         cart = request.session.get('cart')
@@ -29,14 +29,13 @@ class Index(View):
             cart[product] = 1
 
         request.session['cart'] = cart
-        print('cart' , request.session['cart'])
-        return redirect('homepage')
+        print('cart', request.session['cart'])
+        return redirect('home')
 
-
-
-    def get(self , request):
+    def get(self, request):
         # print()
         return HttpResponseRedirect(f'/store{request.get_full_path()[1:]}')
+
 
 def store(request):
     cart = request.session.get('cart')
