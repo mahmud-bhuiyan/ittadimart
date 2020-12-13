@@ -4,10 +4,14 @@
 {% load custom_filter %}
 <div class="container">
     <div class="border rounded p-4 m-4">
-        <p class="display-4 ml-2">Your Orders</p>
-        <table class="table">
-            <thead>
-            <tr>
+        <div class="row">
+            <p class="display-4 pl-4 mr-auto" style="font-size:65px;">Your Orders</p>
+            <p class="ml-auto"><a class="btn btn-info border rounded py-2 px-5 mr-5 mt-4" href="./"><i
+                    class="fas fa-arrow-left pr-2"></i>Back</a></p>
+        </div>
+        <table class="table table-hover table-striped">
+            <thead class="thead-dark">
+            <tr class="text-center align-middle">
                 <th>SL</th>
                 <th>Image</th>
                 <th>Product</th>
@@ -21,18 +25,19 @@
             <tbody>
 
             {% for order in orders %}
-            <tr>
-                <td>{{forloop.counter}}</td>
-                <td><img style="height: 50px;" class="rounded-circle" src="{{order.product.image.url}}" alt=""></td>
-                <td>{{order.product.name}}</td>
-                <td>{{order.date}}</td>
-                <td>{{order.price|currency}}</td>
-                <td>{{order.quantity}}</td>
-                <td>{{order.quantity|multiply:order.price|currency}}</td>
+            <tr class="text-center">
+                <td class="align-middle">{{forloop.counter}}</td>
+                <td class="align-middle"><img style="height: 50px;" class="rounded-circle"
+                                              src="{{order.product.image.url}}" alt=""></td>
+                <td class="align-middle">{{order.product.name}}</td>
+                <td class="align-middle">{{order.date}}</td>
+                <td class="align-middle">{{order.price|currency}}</td>
+                <td class="align-middle">{{order.quantity}}</td>
+                <td class="align-middle">{{order.quantity|multiply:order.price|currency}}</td>
                 {% if order.status %}
-                <td><small class="badge badge-success">Completed</small></td>
+                <td class="align-middle"><small class="badge badge-success">Completed</small></td>
                 {%else%}
-                <td><small class="badge badge-warning">Pending</small></td>
+                <td class="align-middle"><small class="badge badge-warning">Pending</small></td>
                 {% endif %}
             </tr>
 

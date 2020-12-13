@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mb-3 font-weight-bold">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top font-weight-bold">
     <a class="navbar-brand" href="/">Ittadi Mart</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,30 +6,34 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
+        <ul class="navbar-nav ml-auto text-uppercase">
+            <li class="nav-item">
+                <a class="nav-link" href="./">Home</a>
             </li>
 
             <li class="nav-item ">
                 <a class="nav-link" href="/cart">Cart
                     <span class="badge badge-info">{{request.session.cart.keys|length}}</span>
-                    <span class="sr-only">(current)</span></a>
+                </a>
             </li>
             {% if request.session.customer %}
             <li class="nav-item">
-                <a class="nav-link" href="/orders">Orders<span class="sr-only"></span></a>
+                <a class="nav-link" href="/orders">Orders</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout<span class="sr-only"></span></a>
+                <a class="nav-link" href="/logout">Logout
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
             </li>
             {% else %}
 
             <li class="nav-item">
-                <a class="nav-link" href="/signup">Signup<span class="sr-only"></span></a>
+                <a class="nav-link" href="/signup">Signup</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login">Login<span class="sr-only"></span></a>
+                <a class="nav-link" href="/login">Login
+                    <i class="fas fa-sign-in-alt"></i>
+                </a>
             </li>
             {% endif %}
         </ul>

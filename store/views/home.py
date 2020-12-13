@@ -18,9 +18,9 @@ class Index(View):
                     if quantity<=1:
                         cart.pop(product)
                     else:
-                        cart[product]  = quantity-1
+                        cart[product] = quantity-1
                 else:
-                    cart[product]  = quantity+1
+                    cart[product] = quantity+1
 
             else:
                 cart[product] = 1
@@ -33,7 +33,6 @@ class Index(View):
         return redirect('home')
 
     def get(self, request):
-        # print()
         return HttpResponseRedirect(f'/store{request.get_full_path()[1:]}')
 
 
