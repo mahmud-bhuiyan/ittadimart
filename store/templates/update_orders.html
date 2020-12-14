@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+			<form action="" method="POST">
+				{% csrf_token %}
+
+				{{form}}
+				<hr>
+				
+				<input type="submit" name="Submit" value="Update">
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

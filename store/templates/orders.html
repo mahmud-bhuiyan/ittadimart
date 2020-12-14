@@ -2,7 +2,7 @@
 {% block content %}
 {% load cart %}
 {% load custom_filter %}
-<div class="container">
+<div class="container" style="min-height: 530px;">
     <div class="border rounded p-4 m-4">
         <div class="row">
             <p class="display-4 pl-4 mr-auto" style="font-size:65px;">Your Orders</p>
@@ -34,10 +34,10 @@
                 <td class="align-middle">{{order.price|currency}}</td>
                 <td class="align-middle">{{order.quantity}}</td>
                 <td class="align-middle">{{order.quantity|multiply:order.price|currency}}</td>
-                {% if order.status %}
-                <td class="align-middle"><small class="badge badge-success">Completed</small></td>
+                {% if order.status == 'Delivered' %}
+                <td class="align-middle"><small class="badge badge-success">{{order.status}}</small></td>
                 {%else%}
-                <td class="align-middle"><small class="badge badge-warning">Pending</small></td>
+                <td class="align-middle"><small class="badge badge-warning">{{order.status}}</small></td>
                 {% endif %}
             </tr>
 
@@ -49,5 +49,7 @@
 
     </div>
 </div>
+
+
 
 {% endblock %}

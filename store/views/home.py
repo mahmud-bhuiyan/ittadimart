@@ -6,7 +6,6 @@ from django.views import View
 
 # Create your views here.
 class Index(View):
-
     def post(self, request):
         product = request.POST.get('product')
         remove = request.POST.get('remove')
@@ -15,12 +14,12 @@ class Index(View):
             quantity = cart.get(product)
             if quantity:
                 if remove:
-                    if quantity<=1:
+                    if quantity <= 1:
                         cart.pop(product)
                     else:
-                        cart[product] = quantity-1
+                        cart[product] = quantity - 1
                 else:
-                    cart[product] = quantity+1
+                    cart[product] = quantity + 1
 
             else:
                 cart[product] = 1
@@ -54,5 +53,3 @@ def store(request):
 
     print('you are : ', request.session.get('email'))
     return render(request, 'index.html', data)
-
-

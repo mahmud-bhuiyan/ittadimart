@@ -5,6 +5,11 @@ import datetime
 
 
 class Order(models.Model):
+    STATUS = (
+        ('Pending', 'Pending'),
+        ('Out for delivery', 'Out for delivery'),
+        ('Delivered', 'Delivered'),
+    )
     product = models.ForeignKey(Product,
                                 on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer,
@@ -14,7 +19,10 @@ class Order(models.Model):
     address = models.CharField(max_length=50, default='', blank=True)
     phone = models.CharField(max_length=50, default='', blank=True)
     date = models.DateField(default=datetime.datetime.today)
-    status = models.BooleanField(default=False)
+    status = models.CharField(max_length=200, null=True, default='Pending', choices=STATUS)
+
+    def __str__(self):
+        return self.customer.first_name
 
     def placeOrder(self):
         self.save()
@@ -22,4 +30,3 @@ class Order(models.Model):
     @staticmethod
     def get_orders_by_customer(customer_id):
         return Order.objects.filter(customer=customer_id).order_by('-date')
-

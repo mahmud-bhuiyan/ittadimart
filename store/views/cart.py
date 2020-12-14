@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.hashers import check_password
-from store.models.customer import Customer
 from django.views import View
+from store.models.orders import Order
 from store.models.product import Product
+from store.forms import OrderForm
 
 
 class Cart(View):
@@ -12,3 +12,16 @@ class Cart(View):
         print(products)
         return render(request, 'cart.html', {'products': products})
 
+
+def updateOrder(request, pk):
+    order = Order.objects.get(id=pk)
+    form = OrderForm(instance=order)
+
+    if request.method == 'POST':
+        form = OrderForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form': form}
+    return render(request, 'update_orders.html', context)
